@@ -36,7 +36,8 @@ const chordContainer = document.getElementById('chord-container');
 let chordContainerAmount;
 
 document.addEventListener("DOMContentLoaded", (event) => {
-  createChordBox(initialChordAmount);
+    console.log("DOM loaded!");
+    createChordBox(initialChordAmount);
 });
 
 /* Play button event listener */
