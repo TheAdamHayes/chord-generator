@@ -35,10 +35,7 @@ var selectedChord;
 var chordContainerAmount;
 var chordContainer;
 
-window.onload = function() { // Since DOMContentLoaded doesn't seem to work.
-    createChordBox(initialChordAmount);
-};
-
+createChordBox(initialChordAmount);
 
 /* Play button event listener */
 document.getElementById('play-button').addEventListener('click', playProgression);
