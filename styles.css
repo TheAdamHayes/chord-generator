@@ -1,0 +1,193 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 80%;
+    max-width: 800px;
+    overflow: auto;
+}
+
+.divider {
+    margin: 20px 0;
+    border: none;
+    border-top: 1px solid #ccc;
+}
+
+.initial-hide {
+  display: none !important;
+}
+
+/* Button Styles */
+button {
+    margin-bottom: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#play-button, #download-midi {
+    margin-bottom: 10px;
+}
+
+.dot-divider {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    background-color: grey;
+    border-radius: 50%;
+    vertical-align: middle;
+}
+
+/* Slider Container */
+.slider-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+#chord-slider {
+    margin: 0 10px;
+}
+
+/* Chord Container */
+.chord-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+/* Chord Box */
+.chord-box {
+    background-color: #e0e0e0;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+    transition: background-color 0.3s;
+}
+
+.chord-box:hover {
+    background-color: #b0b0b0;
+}
+
+/* Chord Popup */
+.chord-popup {
+    position: absolute;
+    background-color: white;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    width: 100%;
+    max-width: 600px; /* Adjust the max-width as needed */
+}
+
+.vertical-divider {
+    width: 1px;
+    background-color: #ccc;
+    margin: 0 10px;
+}
+
+.chord-popup h3 {
+  text-align: center;
+}
+
+.chord-options, .chord-extensions, .chord-letter-slider, .chord-inversions {
+    text-align: left;
+    flex: 1;
+}
+
+.chord-options label, .chord-extensions label {
+    display: block;
+    margin: 5px 0;
+}
+
+.chord-letter-slider, .chord-inversions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#inversion-slider, #letter-slider {
+    writing-mode: bt-lr;
+    -webkit-appearance: slider-vertical;
+    width: 8px;
+    height: 100px;
+    margin: 10px 0;
+}
+
+#inversion-label {
+    margin-top: 10px;
+}
+
+#letter-input, #tonic-label {
+    width: 40px;
+    text-align: center;
+}
+
+/* Arrow Container */
+.arrow-container {
+    text-align: center;
+    margin: 10px 0;
+}
+
+.arrow {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Parameters Section */
+.parameters {
+    text-align: center;
+}
+
+.parameters.hidden {
+    display: none;
+}
+
+.cursive-font {
+    font-family: 'Brush Script MT', cursive;
+}
+
+.parameter-group {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.parameter-category {
+    text-align: left;
+}
+
+.parameter-category h3 {
+    margin-bottom: 10px;
+}
+
+.parameter-category label {
+    display: block;
+    margin: 5px 0;
+}
