@@ -32,7 +32,7 @@ var previousAmount = initialChordAmount;
 var selectedChord;
 
 /* Variables that are referenced multiple times */
-var chordContainer = document.getElementById('chord-container');
+var chordContainer = document.querySelector('.chord-container');
 var chordContainerAmount;
 
 document.addEventListener("DOMContentLoaded", (event) => {
