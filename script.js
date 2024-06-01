@@ -38,8 +38,12 @@ var chordContainer;
 /* Play button event listener */
 document.getElementById('play-button').addEventListener('click', playProgression);
 
-/* ## CHORD CREATION / DELETION ## */
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOMContentLoaded Event Listener Loaded!');
+    createChordBox(initialChordAmount);
+});
 
+/* ## CHORD CREATION / DELETION ## */
 function updateChordAmount(amount) {
   /* To avoid having to clear all chord boxes every time we update the amount of chords, we pop and create on the end. */
   
@@ -504,8 +508,4 @@ function downloadMidi() {
   a.click();
   document.body.removeChild(a);
 }
-
-document.addEventListener('DOMContentLoaded', function() {
-    createChordBox(initialChordAmount);
-});
 
