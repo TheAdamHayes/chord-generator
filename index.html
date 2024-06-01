@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Chord Progression Generator</title>
+      <link rel="stylesheet" href="styles.css">
+   </head>
+   <body>
+      <div class="container">
+         <h1>Chord Progression Generator</h1>
+         <!--PLAY/DOWNLOAD-->
+         <div>
+            <button id="play-button" onclick="playProgression()">Play</button>
+            <span class="dot-divider"></span>
+            <button id="download-midi" onclick="downloadMidi()">Download</button>
+         </div>
+         
+        <!--NUMBER OF CHORDS/CHORD BOXES-->
+         <hr class="divider">
+         <div class="slider-container">
+            <label for="chord-slider">Number of Chords:</label>
+            <input type="range" id="chord-slider" min="1" max="12" value="4" oninput="updateChordAmount(this.value)">
+            <span id="chord-count">4</span>
+         </div>
+         <div id="chord-container" class="chord-container"></div>
+         <div class="arrow-container">
+            <span id="toggle-arrow" class="arrow" onclick="toggleParameters()">▼</span>
+         </div>
+        
+         <!--PARAMETERS-->
+         <div id="parameters-container" class="parameters hidden">
+            <h2 class="cursive-font">Parameters</h2>
+            <div class="parameter-group">
+               <div class="parameter-category">
+                  <h3>Mood</h3>
+                  <label><input type="radio" name="chord-mood" value="Happy"> Happy</label>
+                  <label><input type="radio" name="chord-mood" value="Sad"> Sad</label>
+                  <label><input type="radio" name="chord-mood" value="Melancholic"> Melancholic</label>
+                  <label><input type="radio" name="chord-mood" value="Ambient"> Ambient</label>
+               </div>
+               <div class="parameter-category">
+                  <h3>Tonic</h3>
+                  <input type="range" id="tonic-slider" min="0" max="11" value="0">
+                  <input type="text" id="tonic-label" value="C">
+               </div>
+               <div class="parameter-category">
+                  <h3>Complexity</h3>
+                  <label><input type="radio" name="chord-complexity" value="Simple"> Simple</label>
+                  <label><input type="radio" name="chord-complexity" value="Intermediate"> Intermediate</label>
+                  <label><input type="radio" name="chord-complexity" value="Complex"> Complex</label>
+               </div>
+            </div>
+            <button onclick="generateProgression()">Generate</button>
+         </div>
+      </div>
+     
+     <!--CHORD POPUP BOX-->
+      <div id="chord-popup" class="chord-popup initial-hide">
+    <div class="chord-letter-slider">
+        <h3>Tonic</h3>
+        <input type="range" id="letter-slider" min="0" max="11" value="0" oninput="updateChordBox(selectedChord, 'tonic', chordLetters[this.value])">
+        <input type="text" id="letter-input" value="C" oninput="updateChordBox(selectedChord, 'tonic', this.value)">
+    </div>
+    <div class="vertical-divider"></div>
+    
+    <!--CHORD BOX PARAMETERS -->
+    <div class="chord-options">
+        <h3>Tonality</h3>
+        <label><input type="radio" name="chord-type" value="Major" onclick="updateChordBox(selectedChord, 'chordType', 'Major')"> Major</label>
+        <label><input type="radio" name="chord-type" value="Minor" onclick="updateChordBox(selectedChord, 'chordType', 'Minor')"> Minor</label>
+        <label><input type="radio" name="chord-type" value="Diminished" onclick="updateChordBox(selectedChord, 'chordType', 'Diminished')"> Diminished</label>
+        <label><input type="radio" name="chord-type" value="Augmented" onclick="updateChordBox(selectedChord, 'chordType', 'Augmented')"> Augmented</label>
+        <label><input type="radio" name="chord-type" value="Sus2" onclick="updateChordBox(selectedChord, 'chordType', 'Sus2')"> Sus2</label>
+        <label><input type="radio" name="chord-type" value="Sus4" onclick="updateChordBox(selectedChord, 'chordType', 'Sus4')"> Sus4</label>
+    </div>
+    <div class="vertical-divider"></div>
+    <div class="chord-extensions">
+        <h3>Extensions</h3>
+        <label><input type="checkbox" name="6th" value="6th" onclick="updateChordBox(selectedChord, 'extensions', this.value)"> 6th</label>
+        <label><input type="checkbox" name="7th" value="7th" onclick="updateChordBox(selectedChord, 'extensions', this.value)"> 7th</label>
+        <label><input type="checkbox" name="9th" value="9th" onclick="updateChordBox(selectedChord, 'extensions', this.value)"> 9th</label>
+        <label><input type="checkbox" name="11th" value="11th" onclick="updateChordBox(selectedChord, 'extensions', this.value)"> 11th</label>
+        <label><input type="checkbox" name="13th" value="13th" onclick="updateChordBox(selectedChord, 'extensions', this.value)"> 13th</label>
+    </div>
+    <div class="vertical-divider"></div>
+    <div class="chord-inversions">
+        <h3>Inversions</h3>
+        <input type="range" id="inversion-slider" min="0" max="2" value="0" oninput="updateChordBox(selectedChord, 'inversion', this.value)">
+        <span id="inversion-label">0</span>
+    </div>
+</div>
+      
+      <!--SCRIPTS-->
+      <script src="script.js"></script>
+      <script src="http://unpkg.com/tone"></script>
+      <script src="https://unpkg.com/@tonejs/midi"></script>
+   </body>
+</html>
