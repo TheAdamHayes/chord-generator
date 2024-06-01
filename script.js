@@ -32,10 +32,10 @@ var previousAmount = initialChordAmount;
 var selectedChord;
 
 /* Variables that are referenced multiple times */
-var chordContainer = document.querySelector('.chord-container');
 var chordContainerAmount;
 
 document.addEventListener("DOMContentLoaded", (event) => {
+    var chordContainer = document.querySelector('.chord-container'); // Make sure the content has loaded before we reference the chord container.
     createChordBox(initialChordAmount);
 });
 
