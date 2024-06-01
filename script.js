@@ -35,7 +35,7 @@ var selectedChord;
 var chordContainerAmount;
 var chordContainer;
 
-document.addEventListener("DOMContentLoaded", (event) => {
+document.addEventListener("DOMContentLoaded", () => {
     createChordBox(initialChordAmount);
 });
 
