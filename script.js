@@ -33,7 +33,7 @@ var selectedChord;
 
 /* Variables that are referenced multiple times */
 var chordContainerAmount;
-var chordContainer = document.getElementById('chord-container');
+var chordContainer;
 
 document.addEventListener("DOMContentLoaded", (event) => {
     createChordBox(initialChordAmount);
@@ -65,6 +65,8 @@ function updateChordAmount(amount) {
 
 function createChordBox(amount) {
   /* Grab current amount of chords so we can update the indexes */
+  chordContainer = document.getElementById('chord-container');
+
   chordContainerAmount = chordContainer.childElementCount;
   
   for (let i = 0; i < amount; i++) {
@@ -89,6 +91,8 @@ function createChordBox(amount) {
 }
 
 function removeChordBox(amount) {
+    chordContainer = document.getElementById('chord-container');
+
   /* Iterate through deltaAmount that we passed here and remove from the END of the array */
   for (let i = 0; i < amount; i++) {
     /* Remove child from end of DOM element */
@@ -331,6 +335,8 @@ function generateProgression() {
   }
 
   function getRandomExtensions() {
+      chordContainer = document.getElementById('chord-container');
+
     return chordExtensions.filter(() => Math.random() < (complexity === "Simple" ? 0.05 : complexity === "Intermediate" ? 0.15 : complexity === "Complex" ? 0.3 : 0));
   }
 
