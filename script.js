@@ -1,6 +1,6 @@
-const chordLetters = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'];
-const chordOptions = ["Major", "Minor", "Diminished", "Augmented", "Sus2", "Sus4"];
-const chordExtensions = ["6th", "7th", "9th", "11th", "13th"];
+var chordLetters = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'];
+var chordOptions = ["Major", "Minor", "Diminished", "Augmented", "Sus2", "Sus4"];
+var chordExtensions = ["6th", "7th", "9th", "11th", "13th"];
 
 var currentSynth = null;
 var reverb = new Tone.Reverb({
@@ -9,7 +9,7 @@ var reverb = new Tone.Reverb({
 }).toDestination();
 
 // Mapping chord types to their respective intervals
-const chordTypes = {
+var chordTypes = {
   'Major': [4, 3],
   'Minor': [3, 4],
   'Diminished': [3, 3],
@@ -19,7 +19,7 @@ const chordTypes = {
 };
 
 // Mapping extensions to their respective intervals
-const extensionIntervals = {
+var extensionIntervals = {
   '6th': 9,
   '7th': 10,
   '9th': 14,
@@ -32,11 +32,10 @@ var previousAmount = initialChordAmount;
 var selectedChord;
 
 /* Variables that are referenced multiple times */
-const chordContainer = document.getElementById('chord-container');
+var chordContainer = document.getElementById('chord-container');
 var chordContainerAmount;
 
 document.addEventListener("DOMContentLoaded", (event) => {
-    console.log("DOM loaded!");
     createChordBox(initialChordAmount);
 });
 
