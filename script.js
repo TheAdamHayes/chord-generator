@@ -2,8 +2,8 @@ const chordLetters = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#'
 const chordOptions = ["Major", "Minor", "Diminished", "Augmented", "Sus2", "Sus4"];
 const chordExtensions = ["6th", "7th", "9th", "11th", "13th"];
 
-let currentSynth = null;
-let reverb = new Tone.Reverb({
+var currentSynth = null;
+var reverb = new Tone.Reverb({
     decay: 3,
     preDelay: 0.5
 }).toDestination();
@@ -27,13 +27,13 @@ const extensionIntervals = {
   '13th': 21
 };
 
-let initialChordAmount = 4;
-let previousAmount = initialChordAmount;
-let selectedChord;
+var initialChordAmount = 4;
+var previousAmount = initialChordAmount;
+var selectedChord;
 
 /* Variables that are referenced multiple times */
 const chordContainer = document.getElementById('chord-container');
-let chordContainerAmount;
+var chordContainerAmount;
 
 document.addEventListener("DOMContentLoaded", (event) => {
     console.log("DOM loaded!");
