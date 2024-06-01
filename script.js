@@ -35,8 +35,6 @@ var selectedChord;
 var chordContainerAmount;
 var chordContainer;
 
-createChordBox(initialChordAmount);
-
 /* Play button event listener */
 document.getElementById('play-button').addEventListener('click', playProgression);
 
@@ -506,3 +504,8 @@ function downloadMidi() {
   a.click();
   document.body.removeChild(a);
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    createChordBox(initialChordAmount);
+});
+
